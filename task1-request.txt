@@ -1,0 +1,6 @@
+select * from students where name = 'Ivanov' and country = 'Russia' and city = 'Moscow'
+select * from students where name = 'Ivanov' and country = 'Russia' and age = '27'
+select * from students where name = 'Ivanov' and city = 'Moscow' and age = '27'
+select * from students where country = 'Russia' and city = 'Moscow' and age = '27'
+select * from students where name = 'VincentWillemvanGogh' and country = 'Netherlands'
+select * from students where name = 'MichelangeloMerisidaCaravaggio' and city = 'Caravaggio'

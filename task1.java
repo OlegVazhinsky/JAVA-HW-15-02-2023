@@ -1,29 +1,28 @@
+/*
+
+Задача:
+
+Сформируйте часть WHERE sql-запроса, используя StringBuilder.
+Данные для фильтрации приведены в виде json строки.
+
+Параметры для фильтрации: {"name":"Ivanov", "country":"Russia", "city":"Moscow", "age":"null"}
+Если значение null, то параметр не должен попадать в запрос.
+
+Sql-запроса "select * from students where ...".
+
+*/
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-/*
-
-Дана строка sql-запроса "select * from students where ".
-
-(select * from Customers where City = 'London' and CustomerID = 4)
-
-Сформируйте часть WHERE этого запроса, используя StringBuilder.
-Данные для фильтрации приведены ниже в виде json строки.
-Если значение null, то параметр не должен попадать в запрос.
-Параметры для фильтрации: {"name":"Ivanov", "country":"Russia", "city":"Moscow", "age":"null"}
-
-*/
-
 public class task1{
     public static void main(String[] args) throws IOException{
         parseJsonFile("request.json");
     }
 
-
-    
     public static void writeToFile(String filePath, String line) throws IOException{
         // связать переменную с файлом
         File file = new File(filePath);
@@ -34,6 +33,7 @@ public class task1{
         // дописать данные в файл
         FileWriter writer = new FileWriter(file, true);
         writer.write(line + "\n");
+        // закрыть файл
         writer.close();
     }
 
@@ -72,8 +72,7 @@ public class task1{
                     if (outString.length() > 29){
                         // убрать последние 5 символов " and "
                         outString.setLength(outString.length() - 5);
-                        // вывести строку в консоль
-                        System.out.println(outString.toString());
+                        // записать строку в файл
                         writeToFile("task1-request.txt", outString.toString());
                         // очистить строку
                         outString.setLength(0);
@@ -89,7 +88,6 @@ public class task1{
         else {
             System.out.println("Файл " + filePath + " не существует или пуст.");
         }
-        
     }
 
 }
