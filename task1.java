@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 /*
@@ -21,13 +22,26 @@ public class task1{
         parseJsonFile("request.json");
     }
 
-    
 
-    public static void parseJsonFile(String file) throws IOException{
+    
+    public static void writeToFile(String filePath, String line) throws IOException{
         // связать переменную с файлом
-        File myFile = new File(file);
+        File file = new File(filePath);
+        // если файл не создан - создать его
+        if (file.createNewFile()){
+            System.out.println("Файл " + filePath + " создан.");
+        }
+        // дописать данные в файл
+        FileWriter writer = new FileWriter(file, true);
+        writer.write(line + "\n");
+        writer.close();
+    }
+
+    public static void parseJsonFile(String filePath) throws IOException{
+        // связать переменную с файлом
+        File file = new File(filePath);
         // проверить есть ли файл и не пуст ли он
-        if (myFile.exists() & myFile.length() > 0){
+        if (file.exists() & file.length() > 0){
             // считать в reader файл. Путь file.
             BufferedReader reader = new BufferedReader(new FileReader(file));
             // переменная для хранения текущей строки
@@ -60,6 +74,7 @@ public class task1{
                         outString.setLength(outString.length() - 5);
                         // вывести строку в консоль
                         System.out.println(outString.toString());
+                        writeToFile("task1-request.txt", outString.toString());
                         // очистить строку
                         outString.setLength(0);
                         // сформировать ноое начало строки
@@ -72,7 +87,7 @@ public class task1{
         }
         // если файла нет или он пуст вывести сообщение
         else {
-            System.out.println("Файл " + file + " не существует или пуст.");
+            System.out.println("Файл " + filePath + " не существует или пуст.");
         }
         
     }
