@@ -1,0 +1,44 @@
+[
+    {
+        "name":"null",
+        "country":"null",
+        "city":"null",
+        "age":"null"
+    },
+    {
+        "name":"Ivanov",
+        "country":"Russia",
+        "city":"Moscow",
+        "age":"null"
+    },
+    {
+        "name":"Ivanov",
+        "country":"Russia",
+        "city":"null",
+        "age":"27"
+    },
+    {
+        "name":"Ivanov",
+        "country":"null",
+        "city":"Moscow",
+        "age":"27"
+    },
+    {
+        "name":"null",
+        "country":"Russia",
+        "city":"Moscow",
+        "age":"27"
+    },
+    {
+        "name":"Vincent Willem van Gogh",
+        "country":"Netherlands",
+        "city":"null",
+        "age":"null"
+    },
+    {
+        "name":"Michelangelo Merisi da Caravaggio",
+        "country":"null",
+        "city":"Caravaggio",
+        "age":"null"
+    }
+]
