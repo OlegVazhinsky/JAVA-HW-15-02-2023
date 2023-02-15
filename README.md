@@ -6,7 +6,7 @@
 Параметры для фильтрации: {"name":"Ivanov", "country":"Russia", "city":"Moscow", "age":"null"}
 Если значение null, то параметр не должен попадать в запрос.
 
-Sql-запроса "select * from students where ...".
+Sql-запрос "select * from students where ...".
 
 # Задача 2. #
 
